@@ -114,6 +114,15 @@
   height: 1em;
 }
 
+.button{
+  margin-top: 5px;
+  background-color: burlywood;
+}
+
+.image {
+  border-radius: 50%;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
