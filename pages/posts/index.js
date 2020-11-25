@@ -1,18 +1,27 @@
 import React from "react";
 import Post from "./components/Post/Post";
 import styles from "./posts.module.scss";
+import dynamic from "next/dynamic";
 
-export default function Posts({ posts }) {
+const Header = dynamic(() => import("./components/Header"), {
+    loading: () => <p>Loading...</p>,
+    ssr: false
+});
+
+export default function Posts({posts}) {
     return (
-        <ul className="row">
-            {posts.map((post) => {
-                return (
-                    <li key={post.id} className={"col-md-3 " + styles.post}>
-                        <Post {...post} />
-                    </li>
-                );
-            })}
-        </ul>
+        <>
+            <Header/>
+            <ul className="row">
+                {posts.map((post) => {
+                    return (
+                        <li key={post.id} className={"col-md-3 " + styles.post}>
+                            <Post {...post} />
+                        </li>
+                    );
+                })}
+            </ul>
+        </>
     );
 }
 
