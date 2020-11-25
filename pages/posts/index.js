@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
-import Link from 'next/link';
-import styles from "../../styles/Home.module.css";
+import React from "react";
+import Post from "./components/Post/Post";
+import styles from "./posts.module.scss";
 
-export default function Posts({posts}) {
-    return <ul>
-        {posts.map((post) => {
-            return <li key={post.id}>
-                <h3> {post.title} </h3>
-                <p>{post.body}</p>
-                <Link href="/posts/[id]" as={"/posts/" + post.id}>
-                    <button className={styles.button}>Read More</button>
-                </Link>
-            </li>
-        })}
-    </ul>
+export default function Posts({ posts }) {
+    return (
+        <ul className="row">
+            {posts.map((post) => {
+                return (
+                    <li key={post.id} className={"col-md-3 " + styles.post}>
+                        <Post {...post} />
+                    </li>
+                );
+            })}
+        </ul>
+    );
 }
 
 //Static Render

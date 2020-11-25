@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from 'next/router';
+import styles from "./components/Post/Post.module.scss";
 
 export default function Post({postData}) {
     const router = useRouter();
@@ -12,6 +13,7 @@ export default function Post({postData}) {
 
     return (
         <div>
+            <img src={"/images/posts/" + postData.id + ".jpeg"} className={"col-md-3 " + styles.post}/>
             <h2>{postData.title}</h2>
             <p>{postData.body}</p>
         </div>
