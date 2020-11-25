@@ -9,7 +9,7 @@ export default function Post({ id, title, body }) {
             <img src={"/images/posts/" + id + ".jpeg"} className={styles.postImage} />
 
                 <Link href="/posts/[id]" as={"/posts/" + id}>
-                    {title}
+                 <h3> {title} </h3>
                 </Link>
             <p>{body}</p>
         </>
